@@ -16,7 +16,7 @@ export default function CustomButton(props){
             onPress={props.onPress}
             android_ripple={{borderless: false, radius: 100, color: mode == 'light' ? Theme.primary : Theme.secondary}}
             android_disableSound={false}
-            style={{backgroundColor: mode == 'light' ? Theme.secondary : Theme.primary,borderRadius: Theme.radius,paddingVertical: 10}}
+            style={{backgroundColor: mode == 'light' ? Theme.secondary : Theme.primary,borderRadius: Theme.radius,paddingVertical: 10,paddingHorizontal: 10,...props.style}}
         >
             <Text style={{
                 fontFamily: Theme.boldfont,

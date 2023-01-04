@@ -44,7 +44,8 @@ export default function App() {
                     'quick-light': require('./fonts/Quicksand-Light.ttf'),
                     'quick-med': require('./fonts/Quicksand-Medium.ttf'),
                     'quick-reg': require('./fonts/Quicksand-Regular.ttf'),
-                    'quick-bold': require('./fonts/Quicksand-SemiBold.ttf')
+                    'quick-bold': require('./fonts/Quicksand-SemiBold.ttf'),
+                    'extra-quick-bold': require('./fonts/Quicksand-Bold.ttf')
                 });
             } catch (e) {
                 console.warn(e);
@@ -67,7 +68,7 @@ export default function App() {
         <View style={{ flex: 1}} onLayout={onLayoutRootView}>
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
-                    <AppStack/>
+                        <AppStack/>
                 </PersistGate>
             </Provider>
         </View>
