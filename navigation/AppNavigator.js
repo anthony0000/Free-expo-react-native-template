@@ -1,16 +1,70 @@
-import React from 'react';
+import React,{View,Text} from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import LoginScreen from '../screens/LoginScreen.js';
 import HomeScreen from '../screens/HomeScreen.js';
 import DefaultScreen from '../screens/DefaultScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import DrawerContentScreen from '../screens/DrawerContentScreen';
+import NotificationScreen from '../screens/NotificationScreen.js';
+import ClientListScreen from '../screens/ClientListScreen.js';
 import Theme from '../constants/Theme.js';
+import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
+
+const MyTabs = () => {
+  return (
+    <Tab.Navigator
+    screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            if (route.name === 'Home') {
+                iconName = focused ? 'home' : 'home-outline';
+            } else if (route.name === 'Settings') {
+                iconName = focused ? 'settings' : 'settings-outline';
+            }else if (route.name === 'Notifications') {
+                iconName = focused ? 'notifications' : 'notifications-outline';
+            }else if (route.name === 'Clients') {
+                iconName = focused ? 'person' : 'person-outline';
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarStyle:{
+            borderTopLeftRadius: Theme.radius + 15,
+            borderTopRightRadius: Theme.radius + 15,
+            backgroundColor: Theme.secondary,
+            height: 50
+        },
+        tabBarLabelStyle:{
+            textTransform: 'uppercase',
+            fontFamily: Theme.boldfont,
+            fontSize: Theme.fontSize - 8
+        },
+        tabBarItemStyle:{
+            margin:5,
+            color: Theme.primary,
+            fontSize: Theme.fontSize - 5
+        },
+        tabBarActiveTintColor: Theme.primary,
+        tabBarInactiveTintColor: Theme.grey,
+        headerShown: false,
+    })}
+    >
+        <Tab.Screen name="Home" component={HomeScreen}/>
+        <Tab.Screen name="Settings" component={SettingsScreen}/>
+        <Tab.Screen name="Notifications" component={NotificationScreen} options={{ tabBarBadge: 3,tabBarBadgeStyle:{
+            fontSize: Theme.fontSize - 5,
+            fontFamily: Theme.boldfont
+        } }} />
+        <Tab.Screen name="Clients" component={ClientListScreen}/>
+    </Tab.Navigator>
+  );
+}
 
 function Draw() {
     return (
@@ -29,9 +83,9 @@ function Draw() {
             }}
             drawerContent={props => <DrawerContentScreen {...props} />}
         >
+            <Drawer.Screen name="Tabs" component={MyTabs} />
             <Drawer.Screen name="Home" component={HomeScreen} />
             <Drawer.Screen name="Default" component={DefaultScreen} />
-            <Stack.Screen name="Settings" component={SettingsScreen} />
         </Drawer.Navigator>
     );
 }
@@ -54,35 +108,13 @@ export default AppStack = () => {
             <Stack.Navigator
                 initialRouteName="Drawer"
                 screenOptions={{
-                    headerMode: 'screen',
                     headerShown: false,
-                    headerTintColor: 'white',
                 }}
             >
-                <Stack.Screen
-                    name="Home"
-                    component={HomeScreen}
-                    options={{
-                        transitionSpec: {
-                            open: config,
-                            close: config,
-                        },
-                    }}
-                />
                 <Stack.Screen
                     name="Drawer"
                     component={Draw}
                     options={{headerShown: false}}
-                />
-                <Stack.Screen
-                    name="Login"
-                    component={LoginScreen}
-                    options={{
-                        transitionSpec: {
-                            open: config,
-                            close: config,
-                        },
-                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>
