@@ -5,7 +5,7 @@ import CustomButton from '../components/Button';
 import CustomText from '../components/Text';
 import CustomInput from '../components/Input';
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
 
@@ -21,11 +21,11 @@ export default function LoginScreen() {
                         <CustomText size={20} label="Login your account" type="bold" style={{textAlign: 'center',marginTop: 20}} />
                     </View>
                     <View style={{width: '100%',height: '30%',flex: 1}}>
-                        <CustomInput placeholder="Email" icon="lock-open-outline" onChangeText={text => setEmail(text)} />
-                        <CustomInput placeholder="Password" icon="mail-outline" onChangeText={text => setPassword(text)} />
+                        <CustomInput placeholder="Email" icon="mail-outline" onChangeText={text => setEmail(text)} />
+                        <CustomInput placeholder="Password" icon="lock-closed-outline" onChangeText={text => setPassword(text)} />
                     </View>
                     <View style={{width: '100%',height: '40%',flex: 1}}>
-                        <CustomButton size={18} label="Proceed" style={{marginTop: 150}}/>
+                        <CustomButton onPress={()=>{props.navigation.navigate('Home')}} size={18} label="Proceed" style={{marginTop: 150}}/>
                     </View>
                 </View>
             </Background>

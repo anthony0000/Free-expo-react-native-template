@@ -1,10 +1,10 @@
 export default {
-    primary : '#f0f8ff',
+    primary : '#fff',
     lightSecondary: '#7d80df',
     secondary: '#4c51dd',
     darkSecondary: '#080811',
     tertiary: '#677483',
-    grey: '#ccc',
+    grey: '#e9ebff',
     danger: '#a13f3f',
     regfont: 'quick-reg',
     medfont: 'quick-med',

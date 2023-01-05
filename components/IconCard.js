@@ -35,8 +35,8 @@ const IconCard = ({children,style,icon,size,amount,cardlabel}) => {
             <View style={{justifyContent: 'center',flexDirection: 'row',alignItems: 'center',height: '70%'}}>
                 <Ionicons name={icon} color={mode === 'light' ? Theme.secondary : Theme.primary} size={size} />
             </View>
-            <CustomText label={amount} size={Theme.fontSize + 5} type="bold" style={{textAlign: 'center',marginRight: 10,marginTop: -20}} />
-            <CustomText label={cardlabel} size={Theme.fontSize -2} type="medium" style={{textAlign: 'center',marginRight: 10,marginTop: 0}} />
+            <CustomText label={amount} size={Theme.fontSize + 5} type="bold" style={{textAlign: 'center',marginTop: -20}} />
+            <CustomText label={cardlabel} size={Theme.fontSize -2} type="medium" style={{textAlign: 'center',marginTop: 0}} />
             {children}
         </View>
     )

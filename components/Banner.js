@@ -46,7 +46,7 @@ const Banner = (props) => {
             zIndex: 10
         },
         bannerTitle: {
-            borderRadius: Theme.radius,
+            borderRadius: Theme.radius + 20,
             height: 40,
             textAlign: 'center',
             paddingVertical: 5,
@@ -54,11 +54,10 @@ const Banner = (props) => {
             paddingTop: 8,
             fontFamily: Theme.boldfont,
             fontSize: Theme.fontSize-2,
-            color: Theme.black,
-            borderWidth: 0.3,
-            borderColor: Theme.secondary,
-            backgroundColor: mode === 'light' ? Theme.primary : Theme.secondary,
-            textTransform: 'capitalize'
+            color: mode === 'light' ? Theme.darkSecondary : Theme.primary,
+            backgroundColor: mode === 'light' ? Theme.primary : null,
+            textTransform: 'capitalize',
+            marginTop: 5
         },
         iconOne: {
             backgroundColor: mode === 'light' ? Theme.primary : 'transparent',
@@ -91,17 +90,15 @@ const Banner = (props) => {
     }else if(props.type == 'type2'){
         return (
             <View style={{...styles.bannerParent,...props.style}}>
-                <Pressable android_ripple={{borderless: false,radius: 100, color: Theme.secondary}} onPress={props.onPressOne} style={{...styles.iconOne,borderRadius: Theme.radius}}>
-                    <Ionicons name={props.iconOne} color={Theme.tertiary} size={props.size} />
-                </Pressable>
-                <Text style={styles.bannerTitle}>{createShortForm(props.name, 25)}</Text>
+                <Ionicons onPress={props.onPressOne} style={{...styles.iconOne,...styles.shadow2}} name={props.iconOne} size={props.size} />
+                <Text style={{...styles.bannerTitle,...styles.shadow1}}>{createShortForm(props.name, 25)}</Text>
             </View>
         );
     }else if(props.type == 'type3'){
         return (
             <View style={{...styles.bannerParent,...props.style}}>
                 <Ionicons onPress={props.onPressOne} style={{...styles.iconOne,...styles.shadow2}} name={props.iconOne} size={props.size} />
-                <Text style={styles.bannerTitle}>{createShortForm(props.name, 25)}</Text>
+                <Text style={{...styles.bannerTitle,...styles.shadow1}}>{createShortForm(props.name, 25)}</Text>
                 <Ionicons onPress={props.onPressTwo} style={{...styles.iconOne,...styles.shadow2}} name={props.iconTwo} size={props.size} />
             </View>
         );

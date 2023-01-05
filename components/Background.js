@@ -14,7 +14,7 @@ export default function Background({ children,type }) {
 
     if(type === 'type1'){
         return (
-            <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} style={{ flex: 1,height: '100%',backgroundColor: mode === 'light' ? Theme.primary : Theme.darkSecondary}}>
+            <View style={{ flex: 1,height: '100%',backgroundColor: mode === 'light' ? Theme.primary : Theme.darkSecondary}}>
                 <View style={{flex: 1,height: '100%'}}>
                     <View style={{width: '100%',flex: 1,paddingVertical: Theme.padding + 15,paddingHorizontal: Theme.padding + 15}}>
                         <KeyboardAvoidingView style={{width: '100%',flex: 1}}>
@@ -23,7 +23,7 @@ export default function Background({ children,type }) {
                     </View>
                 </View>
                 <StatusBar style="auto" />
-            </ScrollView>
+            </View>
         )
     }else{
         return (

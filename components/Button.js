@@ -22,7 +22,8 @@ export default function CustomButton(props){
                 fontFamily: Theme.boldfont,
                 fontSize: props.size,
                 textAlign: "center",
-                color: mode == 'light' ? Theme.primary : Theme.secondary
+                color: mode == 'light' ? Theme.primary : Theme.secondary,
+                ...props.textStyle
             }}>
                 {props.label}
             </Text>
