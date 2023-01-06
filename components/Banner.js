@@ -54,7 +54,7 @@ const Banner = (props) => {
             paddingTop: 8,
             fontFamily: Theme.boldfont,
             fontSize: Theme.fontSize-2,
-            color: mode === 'light' ? Theme.darkSecondary : Theme.primary,
+            color: mode === 'light' ? Theme.secondary : Theme.primary,
             backgroundColor: mode === 'light' ? Theme.primary : null,
             textTransform: 'capitalize',
             marginTop: 5

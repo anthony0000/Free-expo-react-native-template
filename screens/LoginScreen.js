@@ -8,6 +8,7 @@ import CustomInput from '../components/Input';
 export default function LoginScreen(props) {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [showPassword,setShowPassword] = useState(false);
 
     return (
         <>
@@ -21,8 +22,12 @@ export default function LoginScreen(props) {
                         <CustomText size={20} label="Login your account" type="bold" style={{textAlign: 'center',marginTop: 20}} />
                     </View>
                     <View style={{width: '100%',height: '30%',flex: 1}}>
-                        <CustomInput placeholder="Email" icon="mail-outline" onChangeText={text => setEmail(text)} />
-                        <CustomInput placeholder="Password" icon="lock-closed-outline" onChangeText={text => setPassword(text)} />
+                        <CustomInput placeholder="Email" keyboardType="email-address" icon="mail-outline" value={email} onChangeText={text => setEmail(text)} />
+                        <CustomInput onPressIcon={() => {setShowPassword(!showPassword)}} 
+                        icon={showPassword == true ? "eye-off-outline" : "eye-outline"} 
+                        secureTextEntry={showPassword == true ? true : false} 
+                        placeholder="Password" value={password}  
+                        onChangeText={text => setPassword(text)} />
                     </View>
                     <View style={{width: '100%',height: '40%',flex: 1}}>
                         <CustomButton onPress={()=>{props.navigation.navigate('Home')}} size={18} label="Proceed" style={{marginTop: 150}}/>

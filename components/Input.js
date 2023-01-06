@@ -25,7 +25,7 @@ const CustomInput = (props) => {
             paddingHorizontal: 15,
             paddingVertical: 10,
             backgroundColor: theme.mode == 'light' ? Theme.secondary : Theme.primary,
-            color: theme.mode == 'light' ? Theme.secondary : Theme.primary,
+            color: theme.mode == 'light' ? Theme.primary : Theme.secondary,
             borderLeftWidth: 0,
             marginTop: 10,
             width: '88%',
@@ -83,17 +83,17 @@ const CustomInput = (props) => {
     return (
         focus == true ?
         <View style={{flexDirection: 'row',elevation: 5,width: '100%',...props.style}}>
-            <Ionicons name={props.icon} style={styles.inputIconFocus} size={Theme.fontextralarge} />
+            <Ionicons name={props.icon} onPress={props.onPressIcon} style={styles.inputIconFocus} size={Theme.fontextralarge} />
             <TextInput secureTextEntry={props.secureTextEntry} setFocus={focus} onChangeText={text => props.onChangeText(text)} 
-            onBlur={() => setFocus(false)} onFocus={() => setFocus(true)} style={{...styles.textInputFocus,...props.styles}} 
+            onBlur={() => setFocus(false)} onFocus={() => setFocus(true)} value={props.value} style={{...styles.textInputFocus,...props.styles}} 
             placeholder={props.placeholder} keyboardType={props.keyboardType}
             placeholderTextColor={theme.mode === 'light' ? Theme.primary : Theme.secondary} 
             />
         </View>:
         <View style={{flexDirection: 'row',elevation: 5,width: '100%',...props.style}}>
-            <Ionicons name={props.icon} style={styles.inputIcon} size={Theme.fontextralarge} />
+            <Ionicons name={props.icon} onPress={props.onPressIcon} style={styles.inputIcon} size={Theme.fontextralarge} />
             <TextInput secureTextEntry={props.secureTextEntry} setFocus={focus} onChangeText={text => props.onChangeText(text)} 
-            onBlur={() => setFocus(false)} onFocus={() => setFocus(true)} style={{...styles.textInput,...props.styles}}
+            onBlur={() => setFocus(false)} onFocus={() => setFocus(true)} value={props.value} style={{...styles.textInput,...props.styles}}
             placeholder={props.placeholder} keyboardType={props.keyboardType}
             placeholderTextColor={theme.mode === 'light' ? Theme.primary : Theme.secondary} />
         </View>

@@ -16,5 +16,7 @@ export default {
     fontSize: 16,
     padding: 10,
     radius: 10,
-    URL: 'https://tailorsmind.com/api/'
+    URL: 'https://tailorsmind.com/api/',
+    MALE: 'https://www.tailorsmind.com/user/assets/img/popimg/',
+    FEMALE: 'https://www.tailorsmind.com/user/assets/img/popimg2/'
 }

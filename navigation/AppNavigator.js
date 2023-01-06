@@ -78,6 +78,19 @@ const MyTabs = () => {
     );
 }
 
+
+const config = {
+    animation: 'spring',
+    config: {
+        stiffness: 1000,
+        damping: 500,
+        mass: 3,
+        overshootClamping: true,
+        restDisplacementThreshold: 0.01,
+        restSpeedThreshold: 0.01,
+    },
+};
+
 function Draw() {
     return (
         <Drawer.Navigator
@@ -99,30 +112,36 @@ function Draw() {
             <Stack.Screen
                 name="SearchClient"
                 component={SearchClientScreen}
+                options={{
+                    transitionSpec: {
+                        open: config,
+                        close: config,
+                    },
+                }}
             />
             <Stack.Screen
                 name="AddClient"
                 component={AddClientScreen}
+                options={{
+                    transitionSpec: {
+                        open: config,
+                        close: config,
+                    },
+                }}
             />
             <Stack.Screen
                 name="Login"
                 component={LoginScreen}
+                options={{
+                    transitionSpec: {
+                        open: config,
+                        close: config,
+                    },
+                }}
             />
         </Drawer.Navigator>
     );
 }
-
-const config = {
-    animation: 'spring',
-    config: {
-        stiffness: 1000,
-        damping: 500,
-        mass: 3,
-        overshootClamping: true,
-        restDisplacementThreshold: 0.01,
-        restSpeedThreshold: 0.01,
-    },
-};
 
 export default AppStack = () => {
     
@@ -149,6 +168,12 @@ export default AppStack = () => {
                 <Stack.Screen
                     name="Drawer"
                     component={Draw}
+                    options={{
+                        transitionSpec: {
+                            open: config,
+                            close: config,
+                        },
+                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

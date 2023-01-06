@@ -13,7 +13,7 @@ const CustomText = (props) => {
     }, [theme]);
 
     return (
-        <Text style={{fontSize: props.size,fontFamily: props.type == 'bold' ? Theme.boldfont : props.type == 'light' ? Theme.lightfont : props.type == 'medium' ? Theme.medfont: props.type == 'extrabold' ? Theme.extraboldfont : Theme.regfont,
+        <Text onPress={props.onPress} style={{fontSize: props.size,fontFamily: props.type == 'bold' ? Theme.boldfont : props.type == 'light' ? Theme.lightfont : props.type == 'medium' ? Theme.medfont: props.type == 'extrabold' ? Theme.extraboldfont : Theme.regfont,
             color: theme.mode == 'light' ? Theme.secondary : Theme.primary,...props.style}}>
             {props.label}
             <Text style={{color: theme.mode == 'light' ? Theme.tertiary : Theme.lightSecondary}}>{props.alighted}</Text>

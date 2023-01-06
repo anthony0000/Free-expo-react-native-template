@@ -2,7 +2,7 @@ import React, { useCallback,useEffect,useState } from 'react';
 import AppStack from './navigation/AppNavigator';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import { View,Text } from 'react-native';
+import { View,Text,LogBox } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 // redux store
@@ -38,6 +38,7 @@ export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
 
     useEffect(() => {
+        LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
         async function prepare() {
             try {
                 await Font.loadAsync({

@@ -6,7 +6,6 @@ import CustomText from '../components/Text';
 import CustomScroll from '../components/CustomScroll';
 import Theme from "../constants/Theme";
 import CustomButton from "../components/Button";
-import { Ionicons } from "@expo/vector-icons";
 import Modal from "react-native-modal";
 import { useSelector } from 'react-redux'; 
 
@@ -37,7 +36,7 @@ export default function NotificationScreen(props){
                             <CustomText type="bold" size={Theme.fontSize} label="Yoga & Tennis" style={{textAlign: 'left'}} />
                             <CustomText type="regular" size={Theme.fontSize - 4} label="Yoga & Tennis ..." style={{textAlign: 'left'}} />
                         </View>
-                        <CustomButton onPress={()=> {toggleModal('hello transform notification, 32901iwiqwei')}} label={<Ionicons name="expand-outline" size={Theme.fontSize} />} />
+                        <CustomButton onPress={()=> {toggleModal('hello transform notification, 32901iwiqwei')}} size={Theme.fontSize - 5} icon="expand-outline"/>
                         
                     </View>
                 </CustomScroll>
